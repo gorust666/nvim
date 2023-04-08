@@ -287,6 +287,15 @@ func! CompileRunGcc()
 		set splitbelow
 		:sp
 		:term python3 %
+	elseif &filetype == 'ruby'
+		set splitbelow
+		:sp
+		:term ruby %
+	elseif &filetype == 'rust'
+		set splitbelow
+		:sp
+		term rustc % && %<.exe
+
 	elseif &filetype == 'html'
 		silent! exec "!".g:mkdp_browser." % &"
 	elseif &filetype == 'markdown'
@@ -412,6 +421,13 @@ Plug 'tweekmonster/braceless.vim', { 'for' :['python', 'vim-plug'] }
 
 " Dart
 Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart', 'vim-plug'] }
+
+
+" Ruby
+Plug 'vim-ruby/vim-ruby', { 'for': ['ruby', 'vim-plug'] }
+
+" Rust
+Plug 'rust-lang/rust.vim', { 'for': ['rust', 'vim-plug'] }
 
 " Swift
 Plug 'keith/swift.vim'
